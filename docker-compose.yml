@@ -1,0 +1,19 @@
+version: "3"
+services:
+
+  route-db:
+    image: postgres:14
+    container_name: db-local
+    restart: always
+    networks:
+      - routes-network
+    environment:
+      - POSTGRES_DB=db-local
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+networks:
+  routes-network:
+    driver: bridge
+
